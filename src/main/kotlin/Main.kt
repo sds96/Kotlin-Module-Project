@@ -1,3 +1,5 @@
 fun main(args: Array<String>) {
-    println("Hello World!")
+    println("Начинаем работу")
+    NoteApp().runApp()
+    println("Работа завершена. До свидания!")
 }
