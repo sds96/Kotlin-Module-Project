@@ -1,7 +1,3 @@
-import java.awt.Menu
-import java.util.Scanner
-import java.util.concurrent.TimeoutException
-
 class Archive(val title : String) : Titled{
     var notes : MutableList<Note> = mutableListOf()
     override fun showTitle(): String {
@@ -10,27 +6,8 @@ class Archive(val title : String) : Titled{
 
     fun go(){
         val onCreate : () -> Unit = {
-            var name :String
-            var text : String
-            while(true){
-                println("Введите название заметки:")
-                name = Scanner(System.`in`).nextLine()
-                if (name.isEmpty()){
-                    println("Пустое имя нелья!")
-                } else  {
-                    break
-                }
-            }
-
-            while(true){
-                println("Введите содержание заметки:")
-                text = Scanner(System.`in`).nextLine()
-                if (text.isEmpty()){
-                    println("Пустое содержание нелья!")
-                } else  {
-                    break
-                }
-            }
+            val name = readNotEmptyLine("Введите название заметки:", "Пустое имя нелья!")
+            val text = readNotEmptyLine("Введите содержание заметки:", "Пустое содержание нелья!")
             notes.add(Note(name, text))
         }
 

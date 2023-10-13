@@ -1,5 +1,3 @@
-import java.util.Scanner
-
 class Note(val title: String, val text: String = "") : Titled{
     override fun showTitle(): String {
         return title
@@ -10,8 +8,7 @@ class Note(val title: String, val text: String = "") : Titled{
             println(MenuGenerator.BORDER)
             println("Открыта заметка '${title}', её содержание:\n$text")
             println(MenuGenerator.BORDER)
-            println("Введите любой символ, чтобы закрыть заметку")
-            Scanner(System.`in`).nextLine()
+            readNotEmptyLine("Введите любой символ, чтобы закрыть заметку", "")
         }
         val onOpen: (index :Int) -> Unit = {}
 

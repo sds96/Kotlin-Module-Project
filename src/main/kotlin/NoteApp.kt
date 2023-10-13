@@ -1,12 +1,9 @@
-import java.util.Scanner
-
 class NoteApp(){
     val GrandArchive : MutableList<Archive> = mutableListOf()
 
     fun runApp(){
         val onCreate : () -> Unit = {
-            println("Введите название архива:")
-            val name = Scanner(System.`in`).nextLine()
+            val name = readNotEmptyLine("Введите название архива:", "Пустое название недопустимо!")
             GrandArchive.add(Archive(name))
             println("Архив с именем $name создан.")
         }

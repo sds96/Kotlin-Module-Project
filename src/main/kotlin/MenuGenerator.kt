@@ -62,3 +62,20 @@ class MenuGenerator {
         const val BORDER = "========================================"
     }
 }
+
+fun readNotEmptyLine(question : String, errorMessage : String) : String{
+    //val scanner = Scanner(System.`in`)
+    var text : String
+    while (true){
+        println(question)
+        text = Scanner(System.`in`).nextLine()
+        if (text.isEmpty()){
+            println(errorMessage)
+        } else  {
+            break
+        }
+    }
+    //scanner.close()
+    // если я буду закрывать сканнер тут, то он потом не открывается после первого использования. Что я делаю не так?
+    return text
+}
